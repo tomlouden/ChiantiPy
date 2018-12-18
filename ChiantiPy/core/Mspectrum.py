@@ -199,8 +199,11 @@ class mspectrum(ionTrails, specTrails):
                     p.join(timeout=timeout)
             #
             for ifb in range(fbWorkerQSize):
-                thisFreeBound = fbDoneQ.get()
-                freeBound += thisFreeBound['intensity'].squeeze()
+                try:
+                    thisFreeBound = fbDoneQ.get()
+                    freeBound += thisFreeBound['intensity'].squeeze()
+                except:
+                    print("No FreeBound for this element")
 
             for p in fbProcesses:
                 if not isinstance(p, str):
