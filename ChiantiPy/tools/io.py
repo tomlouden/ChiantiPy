@@ -1078,7 +1078,7 @@ def ipRead(verbose=False):
     if verbose:
         print((' maxz = %5i'%(maxz)))
     nip = nip-1
-    ip = np.zeros((maxz, maxz), 'Float64')
+    ip = np.zeros((maxz+1, maxz+1), 'Float64')
     for aline in data[0:nip]:
         s2 = aline.split()
         iz = int(s2[0])
